@@ -31,11 +31,12 @@ public class AvaluadorTest2 {
     @Parameterized.Parameter(1)
     public double mitjana;
     
+    @Parameterized.Parameters
     public static Collection<Object[]> data() {
         Object[][] data = new Object [][]{
             {new Estudiant ("Adri", 9.0, 7.0, 6.0), 7.33},
             {new Estudiant ("Pep", 5.0, 5.0, 5.0), 5.0},
-            {new Estudiant ("Jose", 5.0, 6.0, 6.0), 5.33},
+            {new Estudiant ("Jose", 5.0, 6.0, 6.0), 5.66},
             {new Estudiant ("Ramon",5.0,6.0,8.0), 6.33},
             {new Estudiant ("Juan",5.0,6.0,8.0), 6.33},
             {new Estudiant ("Ivan",5.0,6.0,8.0), 6.33},
@@ -80,7 +81,7 @@ public class AvaluadorTest2 {
      */
     @Test
     public void testMitjanaSiSupera() throws Exception {
-        assertEquals(mitjana, instance.mitjanaSiSupera(new Estudiant("Adri",9.0,7.0,6.0)), 0.1);
+        assertEquals(mitjana, instance.mitjanaSiSupera(Estudiant), 0.1);
     }
     
     /**
@@ -88,19 +89,7 @@ public class AvaluadorTest2 {
      */
     @Test
     public void testMitjana() throws Exception {
-        assertEquals(mitjana, instance.mitjana(new Estudiant("Adri",9.0,7.0,6.0)), 0.1);
+        assertEquals(mitjana, instance.mitjana(Estudiant), 0.1);
     }
 
-    /**
-     * Test of millorEstudiantPerNotaMitjana method, of class Avaluador.
-     */
-   /* @Test
-    public void testMillorEstudiantPerNotaMitjana() {
-        Estudiant [] estudiants = new Estudiant[] {new Estudiant("Adri", 9.0, 7.0, 6.0), 
-                                                   new Estudiant("Pep", 5.0, 5.0, 5.0),
-                                                   new Estudiant("Jose", 5.0, 6.0, 6.0)};
-        
-        assertEquals(estudiants[0],instance.millorEstudiantPerNotaMitjana(estudiants));
-    }
-    */
 }
